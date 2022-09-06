@@ -11,3 +11,7 @@ jobs:
           name: Build docker file
           command: |
             docker build . -t app
+      - run:
+          name: Do a curl
+          command: |
+            curl http://localhost:8080
