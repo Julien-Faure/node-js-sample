@@ -15,19 +15,20 @@ jobs:
           name: Run docker
           command: |
             docker run -d --name instance app
-  tests:
-    docker:
-      - image: curlimages/curl:latest
-    steps:
-      - run:
-          name: Do a curl
-          command: |
-            curl http://localhost:8080
+            docker run --network container:instance appropriate/curl --retry 10 --retry-connrefused http://localhost:8080
+#  tests:
+#    docker:
+#      - image: curlimages/curl:latest
+#    steps:
+#      - run:
+#          name: Do a curl
+#          command: |
+#            curl http://localhost:8080
 
 workflows:
   my-workflow:
     jobs:
     - build
-    - tests:
-        requires:
-          - build
+#    - tests:
+#        requires:
+#          - build
