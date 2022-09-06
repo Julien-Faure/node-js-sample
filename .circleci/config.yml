@@ -16,10 +16,6 @@ jobs:
       - image: curlimages/curl:latest
     steps:
       - run:
-          name: Install curl
-          command: |
-            apt install curl
-      - run:
           name: Do a curl
           command: |
             curl http://localhost:8080
