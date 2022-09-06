@@ -28,4 +28,6 @@ workflows:
   my-workflow:
     jobs:
     - build
-    - tests
+    - tests:
+        requires:
+          - build
