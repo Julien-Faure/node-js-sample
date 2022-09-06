@@ -12,6 +12,10 @@ jobs:
           command: |
             docker build . -t app
       - run:
+          name: Install curl
+          command: |
+            apt install curl
+      - run:
           name: Do a curl
           command: |
             curl http://localhost:8080
