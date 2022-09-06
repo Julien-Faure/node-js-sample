@@ -11,6 +11,10 @@ jobs:
           name: Build docker file
           command: |
             docker build . -t app
+      - run:
+          name: Run docker
+          command: |
+            docker run --named instance app
   tests:
     docker:
       - image: curlimages/curl:latest
