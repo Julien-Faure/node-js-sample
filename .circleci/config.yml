@@ -1,7 +1,12 @@
 version: 2.1
-orbs:
-  hello: circleci/hello-build@0.0.5
-workflows:
-  "Hello Workflow":
-    jobs:
-      - hello/hello-build
+jobs:
+  build:
+    working_directory: /app
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout
+      - run:
+          name: Build docker file
+          command: |
+            docker build . -t app
