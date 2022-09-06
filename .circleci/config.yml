@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Run docker
           command: |
-            docker run --name instance app -d
+            docker run -d --name instance app
   tests:
     docker:
       - image: curlimages/curl:latest
