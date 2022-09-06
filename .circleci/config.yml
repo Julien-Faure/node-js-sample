@@ -11,6 +11,10 @@ jobs:
           name: Build docker file
           command: |
             docker build . -t app
+  tests:
+    docker:
+      - image: curlimages/curl:latest
+    steps:
       - run:
           name: Install curl
           command: |
