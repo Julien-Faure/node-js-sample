@@ -23,3 +23,9 @@ jobs:
           name: Do a curl
           command: |
             curl http://localhost:8080
+
+workflows:
+  my-workflow:
+    jobs:
+    - build
+    - tests
